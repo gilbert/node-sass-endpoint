@@ -28,12 +28,12 @@ exports.serve = function (filePath, options) {
       if (! isSassFile(file) ) return;
 
       // Remove underscores (the importer fn receives file names without underscores)
-      var basename = path.basename(file, '.scss').replace(/\/_/, '/');
+      var basename = file.replace(/\.scss$/, '').replace(/\/_/, '/');
 
       if (deps.has(basename)) {
         if (options.debug) console.log("[node-sass-endpoint] Clearing cache for:", path.basename(filePath));
         cache = null;
-      };
+      }
     });
   }
 
