@@ -31,9 +31,15 @@ Now any GET request to `localhost:5555/app.css` will compile and serve the SASS 
 app.get(
   '/app.css',
   sass.serve('./client/app.scss', {
-    watchDir: './client/',       // <-- defaults to parent folder of scss file
-    includePaths: ['./client/'], // <-- defaults to parent folder of scss file
-    debug: false                 // <-- defaults to false
+
+    // (dev only) defaults to parent folder of scss file
+    watchDir: './client/',
+
+    // defaults to parent folder of scss file
+    includePaths: ['./client/'],
+
+    // defaults to false
+    debug: false
   })
 );
 ```
