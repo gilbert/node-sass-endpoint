@@ -10,7 +10,6 @@ exports.serve = function (filePath, options) {
   options.watchDir = options.watchDir || path.dirname(filePath);
   options.includePaths = options.includePaths || [path.dirname(filePath)];
 
-  var deps  = new Set([ path.basename(filePath, '.scss') ]);
   var cache = null;
 
   var sassOptions = {
@@ -19,21 +18,14 @@ exports.serve = function (filePath, options) {
   };
 
   if (nodeEnv === 'development') {
-    sassOptions.importer = function (file, prev, done) {
-      deps.add(file);
-      return file;
-    };
 
     fs.watch(options.watchDir, { recursive: true }, function(e, file) {
       if (! isSassFile(file) ) return;
 
-      // Remove underscores (the importer fn receives file names without underscores)
-      var basename = file.replace(/\.scss$/, '').replace(/\/_/, '/');
-
-      if (deps.has(basename)) {
-        if (options.debug) console.log("[node-sass-endpoint] Clearing cache for:", path.basename(filePath));
-        cache = null;
+      if (options.debug) {
+        console.log("[node-sass-endpoint] Clearing cache for:", path.basename(filePath));
       }
+      cache = null;
     });
   }
 
