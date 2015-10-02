@@ -7,9 +7,21 @@ Easily serve a SASS file as CSS from an express endpoint. No grunt/gulp, no buil
 - [node-sass](https://www.npmjs.com/package/node-sass) (taken care of by npm install)
 - ES6 `Object.assign` (either use node v4.0+ or a [polyfill](https://www.npmjs.com/package/es6-object-assign))
 
-## Usage
+## Usage - Easy Version
 
-The easy version:
+Assuming you have the following directory structure:
+
+```
+client/
+└── app.scss
+
+server/
+└── index.js
+
+package.json
+```
+
+Then you can write the following as your `server/index.js`:
 
 ```javascript
 // server.js
@@ -23,7 +35,9 @@ console.log("Listening on port 5555...");
 app.listen(5555);
 ```
 
-Now any GET request to `localhost:5555/app.css` will compile and serve the SASS file located at `./client/app.scss`. Any `@import` statements within `app.scss` will be included in the `app.css` output.
+And run `node server/index.js`.
+
+Now any GET request to `localhost:5555/app.css` will compile and serve the SASS file located at `./client/app.scss`. Any `@import` statements within `app.scss` will also be included in the final output.
 
 ## Advanced Usage
 
@@ -32,7 +46,8 @@ app.get(
   '/app.css',
   sass.serve('./client/app.scss', {
 
-    // (dev only) defaults to parent folder of scss file
+    // (dev only) defaults to parent folder of scss file.
+    // Any sass file changes in this directory will clear the output cache.
     watchDir: './client/',
 
     // defaults to parent folder of scss file
