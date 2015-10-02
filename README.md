@@ -5,7 +5,7 @@ Easily serve a SASS file as CSS from an express endpoint. No grunt/gulp, no buil
 ### Dependencies
 
 - [node-sass](https://www.npmjs.com/package/node-sass) (taken care of by npm install)
-- ES6 `Set` and `Object.assign` (either use node v4.0+ or a polyfill)
+- ES6 `Object.assign` (either use node v4.0+ or a [polyfill](https://www.npmjs.com/package/es6-object-assign))
 
 ## Usage
 
