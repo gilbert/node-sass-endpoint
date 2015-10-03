@@ -3,6 +3,13 @@ var fs = require('fs');
 var path = require('path');
 var nodeEnv = process.env.NODE_ENV || 'development';
 
+if (! Object.assign) {
+  console.error("\n----\n");
+  console.error("! Object.assign is not defined");
+  console.error("  Please install node v4.0.0+ or npm install es6-object-assign");
+  console.error("\n----\n");
+}
+
 exports.serve = function (filePath, options) {
 
   options = options || {};
