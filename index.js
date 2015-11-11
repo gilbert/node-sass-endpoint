@@ -19,7 +19,9 @@ exports.serve = function (filePath, options) {
   }
 
   options.watchDir = options.watchDir || path.dirname(filePath);
+
   options.includePaths = options.includePaths || [path.dirname(filePath)];
+  options.includePaths.push( path.join(process.cwd(), 'node_modules') );
 
   var cache = null;
 

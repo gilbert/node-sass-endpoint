@@ -55,7 +55,8 @@ app.get(
     // Any sass file changes in this directory will clear the output cache.
     watchDir: './client/',
 
-    // defaults to parent folder of scss file
+    // Defaults to parent folder of scss file.
+    // The node_modules/ is always included.
     includePaths: ['./client/'],
 
     // defaults to false
