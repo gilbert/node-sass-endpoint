@@ -1,6 +1,6 @@
 {
   "name": "node-sass-endpoint",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Easily serve sassy css assets on express",
   "main": "index.js",
   "scripts": {
