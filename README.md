@@ -29,6 +29,7 @@ Then you can write the following as your `server/index.js`:
 
 ```javascript
 // server.js
+var express = require('express');
 var sass = require('node-sass-endpoint');
 var app  = express();
 
