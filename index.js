@@ -14,6 +14,10 @@ exports.serve = function (filePath, options) {
 
   options = options || {};
 
+  if ( ! fs.existsSync(filePath) ) {
+    throw Error('[node-sass-endpoint] File does not exist: ' + filePath);
+  }
+
   options.watchDir = options.watchDir || path.dirname(filePath);
   options.includePaths = options.includePaths || [path.dirname(filePath)];
 
