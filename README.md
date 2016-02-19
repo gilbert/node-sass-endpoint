@@ -59,7 +59,10 @@ app.get(
     // The node_modules/ is always included.
     includePaths: ['./client/'],
 
-    // defaults to false
+    // Defaults to "nested". Can be one of: "nested", "expanded", "compact", or "compressed".
+    outputStyle: 'compressed',
+
+    // Defaults to false
     debug: false
   })
 );
