@@ -27,7 +27,8 @@ exports.serve = function (filePath, options) {
 
   var sassOptions = {
     file: filePath,
-    includePaths: options.includePaths
+    includePaths: options.includePaths,
+    outputStyle: options.outputStyle || 'nested'
   };
 
   if (nodeEnv === 'development') {
