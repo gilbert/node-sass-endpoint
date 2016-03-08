@@ -68,7 +68,7 @@ exports.serve = function (filePath, options) {
 
 }
 
-var ext = /\.scss$/;
+var ext = /\.(sass|scss)$/;
 function isSassFile (file) {
   return file.match(ext);
 }
