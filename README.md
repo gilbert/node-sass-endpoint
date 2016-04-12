@@ -35,8 +35,15 @@ var express = require('express');
 var sass = require('node-sass-endpoint');
 var app  = express();
 
+// Serve CSS
 app.get('/assets/app-bundle.css',
   sass.serve('./client/app.scss'));
+
+// Serve HTML
+var path = require('path')
+app.get('/', function (req, res) {
+  res.sendFile( path.resolve(__dirname, '../client/public/admin.html') )
+})
 
 console.log("Listening on port 5555...");
 app.listen(5555);
