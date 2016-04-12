@@ -17,7 +17,9 @@ Assuming you have the following directory structure:
 
 ```
 client/
-└── app.scss
+├── app.scss
+└── index.html
+
 
 server/
 └── index.js
@@ -33,7 +35,7 @@ var express = require('express');
 var sass = require('node-sass-endpoint');
 var app  = express();
 
-app.get('/app.css',
+app.get('/assets/app-bundle.css',
   sass.serve('./client/app.scss'));
 
 console.log("Listening on port 5555...");
@@ -42,13 +44,26 @@ app.listen(5555);
 
 And run `node server/index.js`.
 
-Now any GET request to `localhost:5555/app.css` will compile and serve the SASS file located at `./client/app.scss`. Any `@import` statements within `app.scss` will also be included in the final output.
+Now any GET request to `localhost:5555/assets/app-bundle.css` will compile and serve the SASS file located at `./client/app.scss`. Any `@import` statements within `app.scss` will also be included in the final output.
+
+With that said, here is an example of using your sass-compiled CSS in `client/index.html`:
+
+```html
+<html>
+<head>
+    <link rel="stylesheet" href="/assets/app-bundle.css">
+</head>
+<body>
+    <!-- page content -->
+</body>
+</html>
+```
 
 ## Advanced Usage
 
 ```javascript
 app.get(
-  '/app.css',
+  '/assets/app-bundle.css',
   sass.serve('./client/app.scss', {
 
     // (dev only) defaults to parent folder of scss file.
