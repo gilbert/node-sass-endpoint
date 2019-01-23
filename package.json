@@ -9,7 +9,7 @@
   "author": "Gilbert <gilbertbagrza@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "node-sass": "^3.3.3"
+    "node-sass": "3.x"
   },
   "repository": {
     "type" : "git",
