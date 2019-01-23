@@ -1,6 +1,6 @@
 {
   "name": "node-sass-endpoint",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "Easily serve sassy css assets on express",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "Gilbert <gilbertbagrza@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "node-sass": "3.x"
+    "node-sass": "4.x"
   },
   "repository": {
     "type" : "git",
